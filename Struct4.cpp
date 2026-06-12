@@ -1,4 +1,4 @@
-//* Struture with in the structure
+//* Structure within a structure with direct initialization
 
 #include <bits/stdc++.h>
 using namespace std;

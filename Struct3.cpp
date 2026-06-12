@@ -1,5 +1,4 @@
-//* Dynamic Initialization of an array of structures
-
+//* Reading and initializing an array of structures dynamically at runtime
 #include <bits/stdc++.h>
 using namespace std;
 
