@@ -15,23 +15,19 @@ public:
 };
 
 template <class T> // Must declare template<class T> for each member function definition outside the class scope
-Arithmetic <T>:: Arithmetic(T a,T b){
+Arithmetic<T>::Arithmetic(T a,T b){
     this->a=a;
     this->b=b;
 }
 
 template<class T>
 T Arithmetic<T>::add(){
-    T c;
-    c=a+b;
-    return(c);
+    return a+b;
 }
 
 template<class T>
 T Arithmetic<T>::sub(){
-    T c;
-    c=a-b;
-    return(c);
+    return a-b;
 }
 
 int main() {
