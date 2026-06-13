@@ -13,8 +13,8 @@ int main(){
     struct student st1;
     struct student &s = st1;
 
-    cout << sizeof(st1) << endl;
-    cout << sizeof(s) << endl;
+    cout << "size of st1: "<< sizeof(st1) << endl;
+    cout << "size of s: " << sizeof(s) << endl;
 
     st1.code = 100;
     strcpy(st1.name, "Pushpesh");
