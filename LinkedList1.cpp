@@ -9,18 +9,18 @@ struct Node{
 struct Node *head=NULL;
 
 void create(int data){
-    struct Node *newnode=(struct Node*)malloc(sizeof(struct Node));
-    newnode->data=data;
-    newnode->next=NULL;
+    struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=data;
+    newNode->next=NULL;
     if(head==NULL){
-        head=newnode;
+        head=newNode;
     }
     else{
         struct Node *temp=head;
         while(temp->next!=NULL){
             temp=temp->next;
         }
-        temp->next=newnode;
+        temp->next=newNode;
     }
 }
 
