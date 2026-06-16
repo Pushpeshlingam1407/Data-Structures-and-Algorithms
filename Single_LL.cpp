@@ -82,6 +82,11 @@ void insertEnd() {
 }
 
 void insertPosition(int pos, int value) {
+  if (pos < 1) {
+    cout << "Invalid Position\n";
+    return;
+  }
+
   Node *newNode = new Node;
   newNode->data = value;
 
@@ -110,6 +115,11 @@ void insertPosition(int pos, int value) {
 void deletePosition(int pos) {
   if (head == nullptr) {
     cout << "List is Empty!\n";
+    return;
+  }
+
+  if (pos < 1) {
+    cout << "Invalid Position\n";
     return;
   }
 
