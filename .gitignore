@@ -1,0 +1,11 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+
+# Clangd config (local IDE config, not for repo)
+.clangd
+.cache/
+
+# VS Code local settings (optional)
+.vscode/
