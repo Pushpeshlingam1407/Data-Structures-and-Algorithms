@@ -221,52 +221,52 @@ int main() {
 
   display();
 
-  cout << "\nElements Creation Completed\n";
+  // cout << "\nElements Creation Completed\n";
 
-  insertBeginning();
-  display();
+  // insertBeginning();
+  // display();
 
-  cout << "\nInsert Beginning Completed\n";
+  // cout << "\nInsert Beginning Completed\n";
 
-  insertEnd();
-  display();
+  // insertEnd();
+  // display();
 
-  cout << "\nInsert End Completed\n";
+  // cout << "\nInsert End Completed\n";
 
-  cout << "\nEnter position and value to insert: ";
-  cin >> pos >> value;
+  // cout << "\nEnter position and value to insert: ";
+  // cin >> pos >> value;
 
-  insertPosition(pos, value);
-  display();
+  // insertPosition(pos, value);
+  // display();
 
-  cout << "\nInsert Position Completed\n";
+  // cout << "\nInsert Position Completed\n";
 
-  cout << "\nEnter position to delete: ";
-  cin >> pos;
+  // cout << "\nEnter position to delete: ";
+  // cin >> pos;
 
-  deletePosition(pos);
-  display();
+  // deletePosition(pos);
+  // display();
 
-  cout << "\nDelete Position Completed\n";
+  // cout << "\nDelete Position Completed\n";
 
-  deleteBegin();
-  display();
+  // deleteBegin();
+  // display();
 
-  cout << "\nDelete Beginning Completed\n";
+  // cout << "\nDelete Beginning Completed\n";
 
-  deleteEnd();
-  display();
+  // deleteEnd();
+  // display();
 
-  cout << "\nDelete End Completed\n";
+  // cout << "\nDelete End Completed\n";
 
-  cout << "\nEnter Search Element: ";
-  cin >> value;
+  // cout << "\nEnter Search Element: ";
+  // cin >> value;
 
-  searchData(value);
+  // searchData(value);
 
-  cout << "\nAfter Reverse:\n";
-  reverseData();
-  display();
+  // cout << "\nAfter Reverse:\n";
+  // reverseData();
+  // display();
 
-  return 0;
+  // return 0;
 }
