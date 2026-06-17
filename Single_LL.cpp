@@ -49,170 +49,170 @@ void display() {
   cout << "NULL\n";
 }
 
-void insertBeginning() {
-  Node *newNode = new Node;
+// void insertBeginning() {
+//   Node *newNode = new Node;
 
-  cout << "Enter value for inserting at beginning: ";
-  cin >> newNode->data;
+//   cout << "Enter value for inserting at beginning: ";
+//   cin >> newNode->data;
 
-  newNode->next = head;
-  head = newNode;
-}
+//   newNode->next = head;
+//   head = newNode;
+// }
 
-void insertEnd() {
-  Node *newNode = new Node;
+// void insertEnd() {
+//   Node *newNode = new Node;
 
-  cout << "Enter value for inserting at end: ";
-  cin >> newNode->data;
+//   cout << "Enter value for inserting at end: ";
+//   cin >> newNode->data;
 
-  newNode->next = nullptr;
+//   newNode->next = nullptr;
 
-  if (head == nullptr) {
-    head = newNode;
-    return;
-  }
+//   if (head == nullptr) {
+//     head = newNode;
+//     return;
+//   }
 
-  Node *temp = head;
+//   Node *temp = head;
 
-  while (temp->next != nullptr) {
-    temp = temp->next;
-  }
+//   while (temp->next != nullptr) {
+//     temp = temp->next;
+//   }
 
-  temp->next = newNode;
-}
+//   temp->next = newNode;
+// }
 
-void insertPosition(int pos, int value) {
-  if (pos < 1) {
-    cout << "Invalid Position\n";
-    return;
-  }
+// void insertPosition(int pos, int value) {
+//   if (pos < 1) {
+//     cout << "Invalid Position\n";
+//     return;
+//   }
 
-  Node *newNode = new Node;
-  newNode->data = value;
+//   Node *newNode = new Node;
+//   newNode->data = value;
 
-  if (pos == 1) {
-    newNode->next = head;
-    head = newNode;
-    return;
-  }
+//   if (pos == 1) {
+//     newNode->next = head;
+//     head = newNode;
+//     return;
+//   }
 
-  Node *temp = head;
+//   Node *temp = head;
 
-  for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
-    temp = temp->next;
-  }
+//   for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
+//     temp = temp->next;
+//   }
 
-  if (temp == nullptr) {
-    cout << "Invalid Position\n";
-    delete newNode;
-    return;
-  }
+//   if (temp == nullptr) {
+//     cout << "Invalid Position\n";
+//     delete newNode;
+//     return;
+//   }
 
-  newNode->next = temp->next;
-  temp->next = newNode;
-}
+//   newNode->next = temp->next;
+//   temp->next = newNode;
+// }
 
-void deletePosition(int pos) {
-  if (head == nullptr) {
-    cout << "List is Empty!\n";
-    return;
-  }
+// void deletePosition(int pos) {
+//   if (head == nullptr) {
+//     cout << "List is Empty!\n";
+//     return;
+//   }
 
-  if (pos < 1) {
-    cout << "Invalid Position\n";
-    return;
-  }
+//   if (pos < 1) {
+//     cout << "Invalid Position\n";
+//     return;
+//   }
 
-  if (pos == 1) {
-    Node *temp = head;
-    head = head->next;
-    delete temp;
-    return;
-  }
+//   if (pos == 1) {
+//     Node *temp = head;
+//     head = head->next;
+//     delete temp;
+//     return;
+//   }
 
-  Node *temp = head;
+//   Node *temp = head;
 
-  for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
-    temp = temp->next;
-  }
+//   for (int i = 1; i < pos - 1 && temp != nullptr; i++) {
+//     temp = temp->next;
+//   }
 
-  if (temp == nullptr || temp->next == nullptr) {
-    cout << "Invalid Position\n";
-    return;
-  }
+//   if (temp == nullptr || temp->next == nullptr) {
+//     cout << "Invalid Position\n";
+//     return;
+//   }
 
-  Node *deleteNode = temp->next;
-  temp->next = deleteNode->next;
-  delete deleteNode;
-}
+//   Node *deleteNode = temp->next;
+//   temp->next = deleteNode->next;
+//   delete deleteNode;
+// }
 
-void deleteBegin() {
-  if (head == nullptr) {
-    cout << "List is Empty!\n";
-    return;
-  }
+// void deleteBegin() {
+//   if (head == nullptr) {
+//     cout << "List is Empty!\n";
+//     return;
+//   }
 
-  Node *temp = head;
-  head = head->next;
-  delete temp;
-}
+//   Node *temp = head;
+//   head = head->next;
+//   delete temp;
+// }
 
-void deleteEnd() {
-  if (head == nullptr) {
-    cout << "List is Empty\n";
-    return;
-  }
+// void deleteEnd() {
+//   if (head == nullptr) {
+//     cout << "List is Empty\n";
+//     return;
+//   }
 
-  if (head->next == nullptr) {
-    delete head;
-    head = nullptr;
-    cout << "Last Node Deleted!\n";
-    return;
-  }
+//   if (head->next == nullptr) {
+//     delete head;
+//     head = nullptr;
+//     cout << "Last Node Deleted!\n";
+//     return;
+//   }
 
-  Node *temp = head;
+//   Node *temp = head;
 
-  while (temp->next->next != nullptr) {
-    temp = temp->next;
-  }
+//   while (temp->next->next != nullptr) {
+//     temp = temp->next;
+//   }
 
-  delete temp->next;
-  temp->next = nullptr;
+//   delete temp->next;
+//   temp->next = nullptr;
 
-  cout << "Last Node Deleted!\n";
-}
+//   cout << "Last Node Deleted!\n";
+// }
 
-void searchData(int key) {
-  Node *temp = head;
-  int pos = 1;
+// void searchData(int key) {
+//   Node *temp = head;
+//   int pos = 1;
 
-  while (temp != nullptr) {
-    if (temp->data == key) {
-      cout << key << " found at position " << pos << endl;
-      return;
-    }
+//   while (temp != nullptr) {
+//     if (temp->data == key) {
+//       cout << key << " found at position " << pos << endl;
+//       return;
+//     }
 
-    temp = temp->next;
-    pos++;
-  }
+//     temp = temp->next;
+//     pos++;
+//   }
 
-  cout << "Element Not Found: " << key << endl;
-}
+//   cout << "Element Not Found: " << key << endl;
+// }
 
-void reverseData() {
-  Node *prev = nullptr;
-  Node *current = head;
-  Node *next = nullptr;
+// void reverseData() {
+//   Node *prev = nullptr;
+//   Node *current = head;
+//   Node *next = nullptr;
 
-  while (current != nullptr) {
-    next = current->next;
-    current->next = prev;
-    prev = current;
-    current = next;
-  }
+//   while (current != nullptr) {
+//     next = current->next;
+//     current->next = prev;
+//     prev = current;
+//     current = next;
+//   }
 
-  head = prev;
-}
+//   head = prev;
+// }
 
 int main() {
   int pos, value;
