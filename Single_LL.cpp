@@ -8,5 +8,6 @@ struct Node{
 struct Node *head=nullptr;
 
 void create(){
+  struct Node *newNode, *temp;
   
 }
