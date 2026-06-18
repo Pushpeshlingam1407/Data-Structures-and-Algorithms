@@ -39,6 +39,9 @@ void display() {
   }
   cout << "null";
 }
+void insertBeg(){
+  
+}
 int main() {
   create();
   display();
