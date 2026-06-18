@@ -39,3 +39,7 @@ void display() {
   }
   cout << "->null";
 }
+int main(){
+  create();
+  display();
+}
