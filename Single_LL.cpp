@@ -10,7 +10,7 @@ struct Node *head = nullptr;
 void create() {
   struct Node *newNode, *temp;
   int n, i;
-  cout << "Enter the Number of Nodes:";
+  cout << "Enter the Number of Nodes: ";
   cin >> n;
   for (int i = 1; i <= n; i++) {
     newNode = (struct Node *)malloc(sizeof(struct Node));
@@ -34,12 +34,12 @@ void display() {
   }
   temp = head;
   while (temp != nullptr) {
-    cout << "->" << temp->data;
+    cout << temp->data << " -> ";
     temp = temp->next;
   }
-  cout << "->null";
+  cout << "null";
 }
-int main(){
+int main() {
   create();
   display();
 }
