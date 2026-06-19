@@ -208,9 +208,10 @@ void update(Student arr[], int n) {
       cin >> arr[i].fees;
       return;
     }
-    cout << "Not Found!" << endl;
-    return;
   }
+  cout << "Not Found!" << endl;
+  return;
+}
   // void remove(Student arr[], int n){
 
   // }
