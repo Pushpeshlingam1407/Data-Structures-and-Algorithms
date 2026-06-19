@@ -91,8 +91,20 @@ void delete (Student arr[], int n) {
   cout << "Not Found!" << endl;
 }
 
-void search(Student arr[],int n){
-    
+void search(Student arr[], int n) {
+  int code;
+  cin >> code;
+  for (int i = 0; i < n; i++) {
+    if (arr[i].code == code) {
+      cout << "Code: " << arr[i].code << endl;
+      cout << "Name: " << arr[i].name << endl;
+      cout << "Course: " << arr[i].course << endl;
+      cout << "Date of Joining: " << arr[i].Doj << endl;
+      cout << "Fees: " << arr[i].fees << endl;
+      return;
+    }
+  }
+  cout << "Not Found!" << endl;
 }
 
 int main() {
