@@ -27,15 +27,15 @@ struct Student {
 
 void insert(Student arr[], int n) {
   for (int i = 0; i < n; i++) {
-    cout << "\nEnter Code: ";
+    cout << "\nEnter Code of Student " << i + 1 << ": ";
     cin >> arr[i].code;
-    cout << "Enter Name: ";
+    cout << "Enter Name of Student " << i + 1 << ": ";
     cin >> arr[i].name;
-    cout << "Enter Course: ";
+    cout << "Enter Course of Student " << i + 1 << ": ";
     cin >> arr[i].course;
-    cout << "Enter Date of Joining: ";
+    cout << "Enter Date of Joining of Student " << i + 1 << ": ";
     cin >> arr[i].Doj;
-    cout << "Enter Fees: ";
+    cout << "Enter Fees of Student " << i + 1 << ": ";
     cin >> arr[i].fees;
   }
 }
