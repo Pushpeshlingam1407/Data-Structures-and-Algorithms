@@ -82,7 +82,7 @@ int main() {
   insert(arr, n);
   cout << endl;
   display(arr, n);
-  update(arr,n);
-  cout<<endl;
-  display(arr,n);
+  update(arr, n);
+  cout << endl;
+  display(arr, n);
 }
