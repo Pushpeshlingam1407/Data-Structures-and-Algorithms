@@ -190,23 +190,44 @@ void display(Student arr[], int n) {
   }
   printAll(arr, n);
 }
-// void update(Student arr[], int n){
+void update(Student arr[], int n) {
+  int code;
+  cout << "Enter code to Update: ";
+  cin >> code;
+  for (int i = 0; i < n; i++) {
+    if (arr[i].code == code) {
+      cout << "Enter new code: ";
+      cin >> arr[i].code;
+      cout << "Enter new name: ";
+      cin >> arr[i].name;
+      cout << "Enter new course: ";
+      cin >> arr[i].course;
+      cout << "Enter new Date of Joining: ";
+      cin >> arr[i].Doj;
+      cout << "Enter new Fees: ";
+      cin >> arr[i].fees;
+      return;
+    }
+    cout << "Not Found!" << endl;
+    return;
+  }
+  // void remove(Student arr[], int n){
 
-// }
-// void remove(Student arr[], int n){
+  // }
+  // void search(Student arr[], int n){
 
-// }
-// void search(Student arr[], int n){
+  // }
+  // void displayOne(Student arr[], int n){
 
-// }
-// void displayOne(Student arr[], int n){
-
-// }
-int main() {
-  int n;
-  cout << "Enter Number of Students: ";
-  cin >> n;
-  Student arr[n];
-  insert(arr, n);
-  display(arr, n);
-}
+  // }
+  int main() {
+    int n;
+    cout << "Enter Number of Students: ";
+    cin >> n;
+    Student arr[n];
+    insert(arr, n);
+    display(arr, n);
+    update(arr, n);
+    cout << endl;
+    display(arr, n);
+  }
