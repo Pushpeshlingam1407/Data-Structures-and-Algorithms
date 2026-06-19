@@ -212,23 +212,23 @@ void update(Student arr[], int n) {
   cout << "Not Found!" << endl;
   return;
 }
-  // void remove(Student arr[], int n){
+// void remove(Student arr[], int n){
 
-  // }
-  // void search(Student arr[], int n){
+// }
+// void search(Student arr[], int n){
 
-  // }
-  // void displayOne(Student arr[], int n){
+// }
+// void displayOne(Student arr[], int n){
 
-  // }
-  int main() {
-    int n;
-    cout << "Enter Number of Students: ";
-    cin >> n;
-    Student arr[n];
-    insert(arr, n);
-    display(arr, n);
-    update(arr, n);
-    cout << endl;
-    display(arr, n);
-  }
+// }
+int main() {
+  int n;
+  cout << "Enter Number of Students: ";
+  cin >> n;
+  Student arr[n];
+  insert(arr, n);
+  display(arr, n);
+  update(arr, n);
+  cout << endl;
+  display(arr, n);
+}
