@@ -14,6 +14,7 @@ Functions:
 Implement using a Array in C++.
 */
 
+//* Brute Force Approach!!
 #include <iostream>
 using namespace std;
 
@@ -74,7 +75,7 @@ void update(Student arr[], int n) {
   cout << "Not Found!" << endl;
 }
 
-void delete (Student arr[], int n) {
+void remove(Student arr[], int n) {
   int code;
   cin >> code;
   for (int i = 0; i < n; i++) {
@@ -138,7 +139,7 @@ int main() {
   cout << "Enter Code to Search: ";
   search(arr, n);
   cout << "Enter Code to Delete: ";
-  delete (arr, n);
+  remove(arr, n);
   cout << endl;
   display(arr, n);
 }
