@@ -54,8 +54,24 @@ void display(Student arr[], int n) {
   }
 }
 
-void update(Student arr[], int n){
-    
+void update(Student arr[], int n) {
+  int code;
+  cout << "Enter the code to update: ";
+  cin >> code;
+  for (int i = 0; i < n; i++) {
+    if (arr[i].code == code) {
+      cout << "Enter new name: " << endl;
+      cin >> arr[i].name;
+      cout << "ENter new course: " << endl;
+      cin >> arr[i].course;
+      cout << "Enter new Doj: " << endl;
+      cin >> arr[i].Doj;
+      cout << "Enter new Fees: " << endl;
+      cin >> arr[i].fees;
+      return;
+    }
+  }
+  cout << "Not Found!" << endl;
 }
 
 int main() {
@@ -66,4 +82,7 @@ int main() {
   insert(arr, n);
   cout << endl;
   display(arr, n);
+  update(arr,n);
+  cout<<endl;
+  display(arr,n);
 }
