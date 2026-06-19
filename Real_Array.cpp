@@ -54,6 +54,10 @@ void display(Student arr[], int n) {
   }
 }
 
+void update(Student arr[], int n){
+    
+}
+
 int main() {
   int n;
   cout << "Enter the Number of Students: ";
