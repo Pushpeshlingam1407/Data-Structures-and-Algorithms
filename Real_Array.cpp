@@ -74,6 +74,27 @@ void update(Student arr[], int n) {
   cout << "Not Found!" << endl;
 }
 
+void delete (Student arr[], int n) {
+  int code;
+  cin >> code;
+  for (int i = 0; i < n; i++) {
+    if (arr[i].code == code) {
+      arr[i].code = -1;
+      arr[i].name = "";
+      arr[i].course = "";
+      arr[i].Doj = "";
+      arr[i].fees = 0;
+      cout << "Record Deleted Successfully!" << endl;
+      return;
+    }
+  }
+  cout << "Not Found!" << endl;
+}
+
+void search(Student arr[],int n){
+    
+}
+
 int main() {
   int n;
   cout << "Enter the Number of Students: ";
