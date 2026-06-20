@@ -44,9 +44,9 @@ void push(int val) {
 
 void pop() {
   if (isEmpty())
-    cout << "Stack Underflow!" << endl;
+    cout << "\nStack Underflow!" << endl;
   else {
-    cout << "Popped: " << stk[top] << endl;
+    cout << "\nPopped: " << stk[top] << endl;
     top--;
   }
 }
@@ -65,6 +65,8 @@ int main() {
   push(12);
   push(231);
   push(232);
+  display();
+  pop();
   display();
   cout << "\nTop element: " << peek() << endl;
 }
