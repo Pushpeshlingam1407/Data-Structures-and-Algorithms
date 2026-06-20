@@ -1,13 +1,12 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Node {
   int studentCode;
-  char name[50];
-  char course[50];
+  string name;
+  string course;
   float fees;
-  char city[50];
+  string city;
   Node *next;
 };
 
