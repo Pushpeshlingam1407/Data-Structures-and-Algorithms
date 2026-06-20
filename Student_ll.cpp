@@ -3,10 +3,10 @@ using namespace std;
 
 struct Node {
   int studentCode;
-  string name;
-  string course;
+  char name[100];
+  char course[100];
   float fees;
-  string city;
+  char city[100];
   Node *next;
 };
 
