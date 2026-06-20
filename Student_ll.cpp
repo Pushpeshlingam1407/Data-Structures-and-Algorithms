@@ -4,10 +4,10 @@ using namespace std;
 
 struct Node {
   int studentCode;
-  string name;
-  string course;
+  char name[50];
+  char course[50];
   float fees;
-  string city;
+  char city[50];
   Node *next;
 };
 
@@ -35,7 +35,7 @@ void create() {
   Node *temp = nullptr;
 
   for (int i = 1; i <= n; i++) {
-    Node *newNode = new Node();
+    Node *newNode = (Node *)malloc(sizeof(Node));
     readStudent(newNode);
 
     if (head == nullptr) {
@@ -69,14 +69,14 @@ void display() {
 }
 
 void insertBegining() {
-  Node *newNode = new Node();
+  Node *newNode = (Node *)malloc(sizeof(Node));
   readStudent(newNode);
   newNode->next = head;
   head = newNode;
 }
 
 void insertEnd() {
-  Node *newNode = new Node();
+  Node *newNode = (Node *)malloc(sizeof(Node));
   readStudent(newNode);
 
   if (head == nullptr) {
@@ -92,7 +92,7 @@ void insertEnd() {
 }
 
 void insertPosition(int pos) {
-  Node *newNode = new Node();
+  Node *newNode = (Node *)malloc(sizeof(Node));
   readStudent(newNode);
 
   if (pos == 1) {
@@ -107,7 +107,7 @@ void insertPosition(int pos) {
 
   if (temp == nullptr) {
     cout << "\nInvalid Position\n";
-    delete newNode;
+    free(newNode);
     return;
   }
 
@@ -125,7 +125,7 @@ void deletePosition(int pos) {
     Node *temp = head;
     cout << "\nDeleted Student : " << temp->name << "\n";
     head = head->next;
-    delete temp;
+    free(temp);
     return;
   }
 
@@ -141,7 +141,7 @@ void deletePosition(int pos) {
   Node *deleteNode = temp->next;
   cout << "\nDeleted Student : " << deleteNode->name << "\n";
   temp->next = deleteNode->next;
-  delete deleteNode;
+  free(deleteNode);
 }
 
 void deleteBegin() {
@@ -153,7 +153,7 @@ void deleteBegin() {
   Node *temp = head;
   cout << "\nDeleted Student : " << temp->name << "\n";
   head = head->next;
-  delete temp;
+  free(temp);
 }
 
 void deleteEnd() {
@@ -164,7 +164,7 @@ void deleteEnd() {
 
   if (head->next == nullptr) {
     cout << "\nDeleted Student : " << head->name << "\n";
-    delete head;
+    free(head);
     head = nullptr;
     return;
   }
@@ -174,7 +174,7 @@ void deleteEnd() {
     temp = temp->next;
 
   cout << "\nDeleted Student : " << temp->next->name << "\n";
-  delete temp->next;
+  free(temp->next);
   temp->next = nullptr;
 }
 
