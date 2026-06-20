@@ -219,44 +219,52 @@ void reverseData() {
 int main() {
   int pos, value;
 
+  cout << "\n========== CREATING STUDENT LIST ==========\n";
   create();
   display();
-  cout << "\nElements Creation Completed\n";
+  cout << ">> Elements Creation Completed\n";
 
+  cout << "\n========== INSERT AT BEGINNING ==========\n";
   insertBegining();
   display();
-  cout << "\nInsert Beginning Completed\n";
+  cout << ">> Insert Beginning Completed\n";
 
+  cout << "\n========== INSERT AT END ==========\n";
   insertEnd();
   display();
-  cout << "\nInsert End Completed\n";
+  cout << ">> Insert End Completed\n";
 
-  cout << "\nEnter Position to Insert : ";
+  cout << "\n========== INSERT AT POSITION ==========\n";
+  cout << "Enter Position to Insert : ";
   cin >> pos;
   insertPosition(pos);
   display();
-  cout << "\nInsert Position Completed\n";
+  cout << ">> Insert Position Completed\n";
 
-  cout << "\nEnter Position to Delete : ";
+  cout << "\n========== DELETE AT POSITION ==========\n";
+  cout << "Enter Position to Delete : ";
   cin >> pos;
   deletePosition(pos);
   display();
-  cout << "\nDelete Position Completed\n";
+  cout << ">> Delete Position Completed\n";
 
+  cout << "\n========== DELETE AT BEGINNING ==========\n";
   deleteBegin();
   display();
-  cout << "\nDelete Begin Completed\n";
+  cout << ">> Delete Begin Completed\n";
 
+  cout << "\n========== DELETE AT END ==========\n";
   deleteEnd();
   display();
-  cout << "\nDelete End Completed\n";
+  cout << ">> Delete End Completed\n";
 
-  cout << "\nEnter Student Code to Search : ";
+  cout << "\n========== SEARCH STUDENT ==========\n";
+  cout << "Enter Student Code to Search : ";
   cin >> value;
   searchStudent(value);
 
+  cout << "\n========== REVERSE LIST ==========\n";
   reverseData();
-  cout << "\nAfter Reverse\n";
   display();
   cout << "NULL\n";
 
