@@ -55,10 +55,9 @@ void display() {
   if (isEmpty())
     cout << "Stack is empty!" << endl;
   else {
-    cout << "Stack (top -> bottom): ";
-    for (int i = top; i >= 0; i--)
-      cout << stk[i] << " ";
-    cout << endl;
+    cout << "Stack elements: ";
+    for (int i = 0; i <= top; i++)
+      cout << stk[i] << endl;
   }
 }
 
