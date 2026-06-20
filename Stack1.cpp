@@ -57,7 +57,7 @@ void display() {
   else {
     cout << "Stack elements: ";
     for (int i = 0; i <= top; i++)
-      cout << stk[i] << endl;
+      cout << stk[i] << " ";
   }
 }
 
@@ -66,5 +66,5 @@ int main() {
   push(231);
   push(232);
   display();
-  cout << "Top element: " << peek() << endl;
+  cout << "\nTop element: " << peek() << endl;
 }
