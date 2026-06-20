@@ -13,23 +13,59 @@
 //? isEmpty - Checking if the stack is empty.
 //? isFull - Checking if the stack is full.
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 #define SIZE 10
 
-int arr[SIZE];
+int stk[SIZE];
 int top = -1;
+
+bool isFull() { return top == SIZE - 1; }
+
+bool isEmpty() { return top == -1; }
+
+int peek() {
+  if (isEmpty()) {
+    cout << "Underflow" << endl;
+    return -1;
+  }
+  return stk[top];
+}
+
 void push(int val) {
-  if (top = SIZE - 1)
-    cout << "Stack Overflow!";
+  if (isFull())
+    cout << "Stack Overflow!" << endl;
   else {
     top++;
-    stack[top] = val;
-    cout << "Inserted values: " << val << endl;
+    stk[top] = val;
+    cout << "Inserted: " << val << endl;
   }
 }
-int main(){
-    push(12);
-    push(231);
-    push(232);
+
+void pop() {
+  if (isEmpty())
+    cout << "Stack Underflow!" << endl;
+  else {
+    cout << "Popped: " << stk[top] << endl;
+    top--;
+  }
+}
+
+void display() {
+  if (isEmpty())
+    cout << "Stack is empty!" << endl;
+  else {
+    cout << "Stack (top -> bottom): ";
+    for (int i = top; i >= 0; i--)
+      cout << stk[i] << " ";
+    cout << endl;
+  }
+}
+
+int main() {
+  push(12);
+  push(231);
+  push(232);
+  display();
+  cout << "Top element: " << peek() << endl;
 }
