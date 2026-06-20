@@ -1,343 +1,279 @@
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+#include <string>
 using namespace std;
+
 struct Node {
-  int studentCode;
-  char name[50];
-  char course[50];
-  float fees;
-  char city[50];
-
-  struct Node *next;
+    int studentCode;
+    string name;
+    string course;
+    float fees;
+    string city;
+    Node *next;
 };
-struct Node *head = NULL;
 
+Node *head = nullptr;
+
+// ─── Helper: read one student's data into a node ────────────────────────────
+void readStudent(Node *node) {
+    cout << "\nEnter Student Code : ";
+    cin >> node->studentCode;
+    cout << "Enter Student Name : ";
+    cin >> node->name;
+    cout << "Enter Course       : ";
+    cin >> node->course;
+    cout << "Enter Fees         : ";
+    cin >> node->fees;
+    cout << "Enter City         : ";
+    cin >> node->city;
+    node->next = nullptr;
+}
+
+// ─── Create ─────────────────────────────────────────────────────────────────
 void create() {
-  struct Node *newNode, *temp;
-  int n, i;
+    int n;
+    cout << "How many Students : ";
+    cin >> n;
 
-  printf("How many Students : ");
-  scanf("%d", &n);
+    Node *temp = nullptr;
 
-  for (i = 1; i <= n; i++) {
-    newNode = (struct Node *)malloc(sizeof(struct Node));
+    for (int i = 1; i <= n; i++) {
+        Node *newNode = new Node();
+        readStudent(newNode);
 
-    printf("\nEnter Student Code : ");
-    scanf("%d", &newNode->studentCode);
-
-    printf("Enter Student Name : ");
-    scanf("%s", newNode->name);
-
-    printf("Enter Course : ");
-    scanf("%s", newNode->course);
-
-    printf("Enter Fees : ");
-    scanf("%f", &newNode->fees);
-
-    printf("Enter City : ");
-    scanf("%s", newNode->city);
-
-    newNode->next = NULL;
-
-    if (head == NULL) {
-      head = newNode;
-      temp = newNode;
-    } else {
-      temp->next = newNode;
-      temp = newNode;
+        if (head == nullptr) {
+            head = newNode;
+            temp = newNode;
+        } else {
+            temp->next = newNode;
+            temp = newNode;
+        }
     }
-  }
 }
+
+// ─── Display ────────────────────────────────────────────────────────────────
 void display() {
-  struct Node *temp;
+    if (head == nullptr) {
+        cout << "\nList Empty\n";
+        return;
+    }
 
-  if (head == NULL) {
-    printf("\nList Empty");
-    return;
-  }
+    cout << "\n-------------------------------------------------------------\n";
+    cout << "Code\tName\tCourse\tFees\tCity\n";
+    cout << "-------------------------------------------------------------\n";
 
-  temp = head;
+    Node *temp = head;
+    while (temp != nullptr) {
+        cout << temp->studentCode << "\t"
+             << temp->name        << "\t"
+             << temp->course      << "\t"
+             << temp->fees        << "\t"
+             << temp->city        << "\n";
+        temp = temp->next;
+    }
 
-  printf("\n-------------------------------------------------------------");
-  printf("\nCode\tName\tCourse\tFees\tCity");
-  printf("\n-------------------------------------------------------------");
-
-  while (temp != NULL) {
-    printf("\n%d\t%s\t%s\t%.2f\t%s", temp->studentCode, temp->name,
-           temp->course, temp->fees, temp->city);
-
-    temp = temp->next;
-  }
-
-  printf("\n-------------------------------------------------------------");
+    cout << "-------------------------------------------------------------\n";
 }
+
+// ─── Insert at Beginning ────────────────────────────────────────────────────
 void insertBegining() {
-  struct Node *newNode;
-
-  newNode = (struct Node *)malloc(sizeof(struct Node));
-
-  printf("\nEnter Student Code : ");
-  scanf("%d", &newNode->studentCode);
-
-  printf("Enter Student Name : ");
-  scanf("%s", newNode->name);
-
-  printf("Enter Course : ");
-  scanf("%s", newNode->course);
-
-  printf("Enter Fees : ");
-  scanf("%f", &newNode->fees);
-
-  printf("Enter City : ");
-  scanf("%s", newNode->city);
-
-  newNode->next = head;
-  head = newNode;
-}
-
-void insertEnd() {
-  struct Node *newNode, *temp;
-
-  newNode = (struct Node *)malloc(sizeof(struct Node));
-
-  printf("\nEnter Student Code : ");
-  scanf("%d", &newNode->studentCode);
-
-  printf("Enter Student Name : ");
-  scanf("%s", newNode->name);
-
-  printf("Enter Course : ");
-  scanf("%s", newNode->course);
-
-  printf("Enter Fees : ");
-  scanf("%f", &newNode->fees);
-
-  printf("Enter City : ");
-  scanf("%s", newNode->city);
-
-  newNode->next = NULL;
-
-  if (head == NULL) {
-    head = newNode;
-    return;
-  }
-
-  temp = head;
-
-  while (temp->next != NULL) {
-    temp = temp->next;
-  }
-
-  temp->next = newNode;
-}
-void insertPosition(int pos) {
-  struct Node *newNode, *temp;
-  int i;
-
-  newNode = (struct Node *)malloc(sizeof(struct Node));
-
-  printf("\nEnter Student Code : ");
-  scanf("%d", &newNode->studentCode);
-
-  printf("Enter Student Name : ");
-  scanf("%s", newNode->name);
-
-  printf("Enter Course : ");
-  scanf("%s", newNode->course);
-
-  printf("Enter Fees : ");
-  scanf("%f", &newNode->fees);
-
-  printf("Enter City : ");
-  scanf("%s", newNode->city);
-
-  if (pos == 1) {
+    Node *newNode = new Node();
+    readStudent(newNode);
     newNode->next = head;
     head = newNode;
-    return;
-  }
-
-  temp = head;
-
-  for (i = 1; i < pos - 1 && temp != NULL; i++) {
-    temp = temp->next;
-  }
-
-  if (temp == NULL) {
-    printf("Invalid Position");
-    free(newNode);
-    return;
-  }
-
-  newNode->next = temp->next;
-  temp->next = newNode;
-}
-void deletePosition(int pos) {
-  struct Node *temp, *deleteNode;
-  int i;
-
-  if (head == NULL) {
-    printf("\nList is Empty");
-    return;
-  }
-
-  if (pos == 1) {
-    temp = head;
-
-    printf("\nDeleted Student : %s", temp->name);
-
-    head = head->next;
-
-    free(temp);
-    return;
-  }
-
-  temp = head;
-
-  for (i = 1; i < pos - 1 && temp != NULL; i++) {
-    temp = temp->next;
-  }
-
-  if (temp == NULL || temp->next == NULL) {
-    printf("\nInvalid Position");
-    return;
-  }
-
-  deleteNode = temp->next;
-
-  printf("\nDeleted Student : %s", deleteNode->name);
-
-  temp->next = deleteNode->next;
-
-  free(deleteNode);
-}
-void deleteBegin() {
-  struct Node *temp;
-
-  if (head == NULL) {
-    printf("\nList is Empty");
-    return;
-  }
-
-  temp = head;
-
-  printf("\nDeleted Student : %s", temp->name);
-
-  head = head->next;
-
-  free(temp);
-}
-void deleteEnd() {
-  struct Node *temp;
-
-  if (head == NULL) {
-    printf("\nList is Empty");
-    return;
-  }
-
-  if (head->next == NULL) {
-    printf("\nDeleted Student : %s", head->name);
-
-    free(head);
-    head = NULL;
-    return;
-  }
-
-  temp = head;
-
-  while (temp->next->next != NULL) {
-    temp = temp->next;
-  }
-
-  printf("\nDeleted Student : %s", temp->next->name);
-
-  free(temp->next);
-
-  temp->next = NULL;
 }
 
-void searchStudent(int code) {
-  struct Node *temp;
-  int pos = 1;
+// ─── Insert at End ──────────────────────────────────────────────────────────
+void insertEnd() {
+    Node *newNode = new Node();
+    readStudent(newNode);
 
-  temp = head;
-
-  while (temp != NULL) {
-    if (temp->studentCode == code) {
-      printf("\nStudent Found at Position %d", pos);
-
-      printf("\nCode   : %d", temp->studentCode);
-      printf("\nName   : %s", temp->name);
-      printf("\nCourse : %s", temp->course);
-      printf("\nFees   : %.2f", temp->fees);
-      printf("\nCity   : %s", temp->city);
-
-      return;
+    if (head == nullptr) {
+        head = newNode;
+        return;
     }
 
-    temp = temp->next;
-    pos++;
-  }
+    Node *temp = head;
+    while (temp->next != nullptr)
+        temp = temp->next;
 
-  printf("\nStudent Not Found");
+    temp->next = newNode;
 }
+
+// ─── Insert at Position ─────────────────────────────────────────────────────
+void insertPosition(int pos) {
+    Node *newNode = new Node();
+    readStudent(newNode);
+
+    if (pos == 1) {
+        newNode->next = head;
+        head = newNode;
+        return;
+    }
+
+    Node *temp = head;
+    for (int i = 1; i < pos - 1 && temp != nullptr; i++)
+        temp = temp->next;
+
+    if (temp == nullptr) {
+        cout << "Invalid Position\n";
+        delete newNode;
+        return;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
+
+// ─── Delete at Position ─────────────────────────────────────────────────────
+void deletePosition(int pos) {
+    if (head == nullptr) {
+        cout << "\nList is Empty\n";
+        return;
+    }
+
+    if (pos == 1) {
+        Node *temp = head;
+        cout << "\nDeleted Student : " << temp->name << "\n";
+        head = head->next;
+        delete temp;
+        return;
+    }
+
+    Node *temp = head;
+    for (int i = 1; i < pos - 1 && temp != nullptr; i++)
+        temp = temp->next;
+
+    if (temp == nullptr || temp->next == nullptr) {
+        cout << "\nInvalid Position\n";
+        return;
+    }
+
+    Node *deleteNode = temp->next;
+    cout << "\nDeleted Student : " << deleteNode->name << "\n";
+    temp->next = deleteNode->next;
+    delete deleteNode;
+}
+
+// ─── Delete at Beginning ────────────────────────────────────────────────────
+void deleteBegin() {
+    if (head == nullptr) {
+        cout << "\nList is Empty\n";
+        return;
+    }
+
+    Node *temp = head;
+    cout << "\nDeleted Student : " << temp->name << "\n";
+    head = head->next;
+    delete temp;
+}
+
+// ─── Delete at End ──────────────────────────────────────────────────────────
+void deleteEnd() {
+    if (head == nullptr) {
+        cout << "\nList is Empty\n";
+        return;
+    }
+
+    if (head->next == nullptr) {
+        cout << "\nDeleted Student : " << head->name << "\n";
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node *temp = head;
+    while (temp->next->next != nullptr)
+        temp = temp->next;
+
+    cout << "\nDeleted Student : " << temp->next->name << "\n";
+    delete temp->next;
+    temp->next = nullptr;
+}
+
+// ─── Search ─────────────────────────────────────────────────────────────────
+void searchStudent(int code) {
+    Node *temp = head;
+    int pos = 1;
+
+    while (temp != nullptr) {
+        if (temp->studentCode == code) {
+            cout << "\nStudent Found at Position " << pos << "\n";
+            cout << "Code   : " << temp->studentCode << "\n";
+            cout << "Name   : " << temp->name        << "\n";
+            cout << "Course : " << temp->course      << "\n";
+            cout << "Fees   : " << temp->fees        << "\n";
+            cout << "City   : " << temp->city        << "\n";
+            return;
+        }
+        temp = temp->next;
+        pos++;
+    }
+
+    cout << "\nStudent Not Found\n";
+}
+
+// ─── Reverse ────────────────────────────────────────────────────────────────
 void reverseData() {
-  struct Node *prev = NULL;
-  struct Node *current = head;
-  struct Node *next = NULL;
+    Node *prev    = nullptr;
+    Node *current = head;
+    Node *next    = nullptr;
 
-  while (current != NULL) {
-    next = current->next;
+    while (current != nullptr) {
+        next          = current->next;
+        current->next = prev;
+        prev          = current;
+        current       = next;
+    }
 
-    current->next = prev;
-
-    prev = current;
-
-    current = next;
-  }
-
-  head = prev;
-
-  printf("\nStudent List Reversed Successfully");
+    head = prev;
+    cout << "\nStudent List Reversed Successfully\n";
 }
+
+// ─── Main ───────────────────────────────────────────────────────────────────
 int main() {
-  int pos, value;
+    int pos, value;
 
-  create();
+    create();
 
-  display();
-  printf("\nElements Creation Completed");
-  insertBegining();
-  display();
-  printf("\nInsert begining Complete");
-  insertEnd();
-  display();
-  printf("\nInsert End Completed");
-  printf("\nEnter Which postion element you want insert with specified value");
-  scanf("%d%d", &pos, &value);
-  insertPosition(pos);
-  display();
-  printf("\nInsert Position Completed");
-  printf("\nEnter Which postion element you want delete");
-  scanf("%d", &pos);
-  deletePosition(pos);
-  display();
-  printf("\nDelete Position is Completed");
-  deleteBegin();
-  display();
-  printf("\nDelete Begin Completed");
-  deleteEnd();
-  display();
-  printf("\nDelete End Completed");
-  printf("\nEnter Search Element");
-  scanf("%d", &value);
-  searchStudent(1);
+    display();
+    cout << "\nElements Creation Completed\n";
 
-  printf("\nAfter Reverse");
+    insertBegining();
+    display();
+    cout << "\nInsert Beginning Complete\n";
 
-  display();
-  printf("NULL");
+    insertEnd();
+    display();
+    cout << "\nInsert End Completed\n";
 
-  return 0;
+    cout << "\nEnter position and value to insert : ";
+    cin >> pos >> value;
+    insertPosition(pos);
+    display();
+    cout << "\nInsert Position Completed\n";
+
+    cout << "\nEnter position to delete : ";
+    cin >> pos;
+    deletePosition(pos);
+    display();
+    cout << "\nDelete Position Completed\n";
+
+    deleteBegin();
+    display();
+    cout << "\nDelete Begin Completed\n";
+
+    deleteEnd();
+    display();
+    cout << "\nDelete End Completed\n";
+
+    cout << "\nEnter Search Code : ";
+    cin >> value;
+    searchStudent(value);
+
+    reverseData();
+    cout << "\nAfter Reverse\n";
+    display();
+    cout << "NULL\n";
+
+    return 0;
 }
