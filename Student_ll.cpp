@@ -15,14 +15,16 @@ Node *head = nullptr;
 void readStudent(Node *node) {
   cout << "\nEnter Student Code : ";
   cin >> node->studentCode;
+  cin.ignore();
   cout << "Enter Student Name : ";
-  cin >> node->name;
+  cin.getline(node->name, 50);
   cout << "Enter Course       : ";
-  cin >> node->course;
+  cin.getline(node->course, 50);
   cout << "Enter Fees         : ";
   cin >> node->fees;
+  cin.ignore();
   cout << "Enter City         : ";
-  cin >> node->city;
+  cin.getline(node->city, 50);
   node->next = nullptr;
 }
 
