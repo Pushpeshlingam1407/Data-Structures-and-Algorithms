@@ -16,14 +16,14 @@ struct Node *create() {
   return newNode;
 }
 
-struct Node *create(struct Node *root, int val) {
+struct Node *insert(struct Node *root, int val) {
   if (root == nullptr) {
     return create(val);
   }
   if (val < root->data) {
-    root->left = create(root->left, val);
+    root->left = insert(root->left, val);
   } else if (val > root->data) {
-    root->right = create(root->right, val);
+    root->right = insert(root->right, val);
   }
   return root;
 }
