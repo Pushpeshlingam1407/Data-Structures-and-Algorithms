@@ -16,4 +16,24 @@ struct Node *create() {
   return newNode;
 }
 
-int main() { struct Node *root = nullptr; }
+struct Node *create(struct Node *root, int val) {
+  if (root == nullptr) {
+    return create(val);
+  }
+  if (val < root->data) {
+    root->left = create(root->left, val);
+  } else if (val > root->data) {
+    root->right = create(root->right, val);
+  }
+  return root;
+}
+int main() {
+  struct Node *root = nullptr;
+  int size;
+  cin >> size;
+  for (int i = 0; i < size; i++) {
+    int val;
+    cin >> val;
+    root = create(root, val);
+  }
+}
