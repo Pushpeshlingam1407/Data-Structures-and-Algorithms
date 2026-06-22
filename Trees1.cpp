@@ -3,37 +3,43 @@ using namespace std;
 
 struct Node {
   int data;
-  struct Node *left;
-  struct Node *right;
+  Node *left;
+  Node *right;
 };
-struct Node *create() {
-  struct Node *newNode;
-  newNode = (struct Node *)malloc(sizeof(struct Node));
-  cout << "Enter Value: ";
-  cin >> newNode->data;
-  newNode->left = NULL;
-  newNode->right = NULL;
+
+Node *create(int val) {
+  Node *newNode = new Node;
+  newNode->data = val;
+  newNode->left = nullptr;
+  newNode->right = nullptr;
   return newNode;
 }
 
-struct Node *insert(struct Node *root, int val) {
+Node *insert(Node *root, int val) {
   if (root == nullptr) {
     return create(val);
   }
+
   if (val < root->data) {
     root->left = insert(root->left, val);
   } else if (val > root->data) {
     root->right = insert(root->right, val);
   }
+
   return root;
 }
+
 int main() {
-  struct Node *root = nullptr;
+  Node *root = nullptr;
+
   int size;
   cin >> size;
+
   for (int i = 0; i < size; i++) {
     int val;
     cin >> val;
-    root = create(root, val);
+    root = insert(root, val);
   }
+
+  return 0;
 }
