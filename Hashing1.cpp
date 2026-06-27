@@ -35,5 +35,14 @@ int main() {
     cout << "Enter Key " << i + 1 << ": ";
     cin >> key;
     insert(key);
+    display();
+  }
+  cout << endl;
+  cout << "Enter Key to Search: ";
+  cin >> key;
+  if (search(key) != -1) {
+    cout << "Element Found at Index " << search(key) << endl;
+  } else {
+    cout << "Element Not Found" << endl;
   }
 }
