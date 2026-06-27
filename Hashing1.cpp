@@ -10,6 +10,22 @@ void insert(int key) {
   cout << "\nKey: " << index << " Value " << key << endl;
 }
 
+int display() {
+  cout << "Hash Table Elements: ";
+  for (int i = 0; i < SIZE; i++) {
+    cout << hashTable[i] << " ";
+  }
+  cout << endl;
+}
+
+int search(int key) {
+  int index = key % SIZE;
+  if (hashTable[index] == key)
+    return index;
+  else
+    return -1;
+}
+
 int main() {
   int n, key;
   cout << "Enter Number of Keys: ";
