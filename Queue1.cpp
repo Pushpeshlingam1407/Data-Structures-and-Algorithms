@@ -27,6 +27,14 @@ void dequeue() {
   }
 }
 
+void peek() {
+  if (front == -1 || front > rear)
+    cout << "Queue is Empty" << endl;
+  else {
+    cout << "Top Element = " << queue[front] << endl;
+  }
+}
+
 void display() {
   if (front == -1 || front > rear)
     cout << "Queue is Empty" << endl;
