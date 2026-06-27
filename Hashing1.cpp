@@ -7,10 +7,11 @@ int hashTable[SIZE];
 
 void insert(int key) {
   int index = key % SIZE;
+  hashTable[index] = key;
   cout << "\nKey: " << index << " Value " << key << endl;
 }
 
-int display() {
+void display() {
   cout << "Hash Table Elements: ";
   for (int i = 0; i < SIZE; i++) {
     cout << hashTable[i] << " ";
