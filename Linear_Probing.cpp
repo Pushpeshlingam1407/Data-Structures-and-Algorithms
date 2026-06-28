@@ -1,8 +1,9 @@
 // * Demonstration of Linear Probing in Hash Tables
 //? What is Linear Probing?
-//? When a collision occurs, we check the very next slot (index + 1, index + 2 ...)
-//? It is the simplest open addressing collision resolution technique
-//? Main drawback: PRIMARY CLUSTERING — long runs of occupied slots form over time
+//? When a collision occurs, we check the very next slot (index + 1, index + 2
+//...) ? It is the simplest open addressing collision resolution technique ?
+// Main drawback: PRIMARY CLUSTERING — long runs of occupied slots form over
+// time
 
 // ! Time Complexity:
 // ! Insert: O(1) average, O(n) worst case (heavy clustering)
@@ -37,12 +38,12 @@ void initialize() {
 //! WARNING: Linear probing causes PRIMARY CLUSTERING
 //!          Long chains of occupied slots form, degrading performance to O(n)
 void insert(int key) {
-  int index = key % SIZE;   // Hash function: simple modulo
-  int start = index;         // * Remember start to detect full table (full cycle)
+  int index = key % SIZE; // Hash function: simple modulo
+  int start = index;      // * Remember start to detect full table (full cycle)
 
   // * Skip over occupied slots — probe one step at a time
   while (hashTable[index] != -1 && hashTable[index] != -2) {
-    index = (index + 1) % SIZE;   // Linear probe: move to next slot
+    index = (index + 1) % SIZE; // Linear probe: move to next slot
 
     //! If we've looped back to start, the table is completely full
     if (index == start) {
@@ -66,15 +67,15 @@ int search(int key) {
 
   while (hashTable[index] != -1) {
     if (hashTable[index] == key)
-      return index;   // * Key found — return its index
+      return index; // * Key found — return its index
 
     index = (index + 1) % SIZE;
 
     if (index == start)
-      break;   // * Completed full cycle, key not present
+      break; // * Completed full cycle, key not present
   }
 
-  return -1;   // * Key not found
+  return -1; // * Key not found
 }
 
 // * Delete: Uses tombstone (-2) strategy to preserve probe chain integrity
@@ -88,7 +89,7 @@ void deleteKey(int key) {
   if (index == -1) {
     cout << "Key " << key << " Not Found!" << endl;
   } else {
-    hashTable[index] = -2;   // * Mark as tombstone (logically deleted)
+    hashTable[index] = -2; // * Mark as tombstone (logically deleted)
     cout << "Key " << key << " Deleted from Index " << index << endl;
   }
 }
@@ -99,9 +100,9 @@ void display() {
   cout << "------+-------\n";
   for (int i = 0; i < SIZE; i++) {
     if (hashTable[i] == -1)
-      cout << "  " << i << "   | Empty\n";          // * Never-used slot
+      cout << "  " << i << "   | Empty\n"; // * Never-used slot
     else if (hashTable[i] == -2)
-      cout << "  " << i << "   | Deleted\n";        // * Tombstone slot
+      cout << "  " << i << "   | Deleted\n"; // * Tombstone slot
     else
       cout << "  " << i << "   | " << hashTable[i] << "\n";
   }
@@ -109,7 +110,7 @@ void display() {
 }
 
 int main() {
-  initialize();   // * Must be called first to set all slots to Empty (-1)
+  initialize(); // * Must be called first to set all slots to Empty (-1)
 
   int n, key, choice;
 
@@ -142,13 +143,11 @@ int main() {
       cout << "Enter Key to Delete: ";
       cin >> key;
       deleteKey(key);
-      display();   // * Show updated table after deletion
+      display(); // * Show updated table after deletion
 
     } else if (choice == 3) {
       display();
     }
 
   } while (choice != 0);
-
-  return 0;
 }
