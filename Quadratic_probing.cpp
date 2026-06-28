@@ -1,3 +1,11 @@
+// TODO: Demonstration of Quadratic Probing in Hash Tables
+//? Purpose: This program demonstrates the working of quadratic probing in hash tables.
+//! Time Complexity: 
+//! Insert: O(1) average, O(n) worst 
+//! Search: O(1) average, O(n) worst 
+//! Delete: O(1) average, O(n) worst 
+//! Space Complexity: O(n)
+
 #include <iostream>
 using namespace std;
 
