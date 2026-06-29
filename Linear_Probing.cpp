@@ -5,6 +5,9 @@
 // Main drawback: PRIMARY CLUSTERING — long runs of occupied slots form over
 // time
 
+// * Formula
+//? probe(i) = (h1(key) + i) % SIZE
+
 // ! Time Complexity:
 // ! Insert: O(1) average, O(n) worst case (heavy clustering)
 // ! Search: O(1) average, O(n) worst case
