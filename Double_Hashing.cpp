@@ -37,7 +37,7 @@ void insert(int key) {
     int newIndex = (index + i * step) % SIZE;
     if (hashTable[newIndex] == -1) {
       hashTable[newIndex] = key;
-      cout << key << "Inserted at index " << newIndex << endl;
+      cout << key << " Inserted at index " << newIndex << endl;
       return;
     }
     i++;
@@ -63,7 +63,7 @@ int search(int key) {
 }
 
 void display() {
-  cout << "\nHash Table Values:";
+  cout << "\nHash Table Values:\n";
   for (int i = 0; i < SIZE; i++) {
     if (hashTable[i] == -1) {
       cout << i << " --> Empty " << endl;
