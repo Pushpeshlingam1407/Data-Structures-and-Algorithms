@@ -4,6 +4,8 @@
 //? step size for probing.
 
 //* Formula
+//? h1(key) = key % SIZE
+//? h2(key) = 7 - (key % 7)
 //? probe(i) = (h1(key) + i * h2(key)) % SIZE
 
 // ! Time Complexity:
