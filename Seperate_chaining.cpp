@@ -38,7 +38,7 @@ void insert(int key) {
 }
 
 void display() {
-  cout << "Hash Table Values:" << endl;
+  cout << "\nHash Table Values:" << endl;
   for (int i = 0; i < SIZE; i++) {
     if (hashTable[i] == -1) {
       cout << i << " --> Empty " << endl;
