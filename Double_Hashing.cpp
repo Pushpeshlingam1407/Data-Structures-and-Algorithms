@@ -18,3 +18,20 @@
 using namespace std;
 
 #define SIZE 10
+
+int hashTable[SIZE];
+
+void initialize() {
+  for (int i = 0; i < SIZE; i++)
+    hashTable[i] = -1;
+}
+
+int hash1(int key) { return key % SIZE; }
+int hash2(int key) { return 7 - (key % 7); }
+
+void insert(int key) {
+  int index = hash1(key);
+  int step = hash2(key);
+}
+
+int main() { initialize(); }
