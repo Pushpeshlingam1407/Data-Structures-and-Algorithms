@@ -1,12 +1,8 @@
-// * Demonstration of Linear Probing in Hash Tables
-//? What is Linear Probing?
-//? When a collision occurs, we check the very next slot (index + 1, index + 2
-//...) ? It is the simplest open addressing collision resolution technique ?
-// Main drawback: PRIMARY CLUSTERING — long runs of occupied slots form over
-// time
+// TODO: Linear Probing — Open Addressing Collision Resolution
+//? On collision, probe next slot: (h(key) + i) % SIZE  (i = 1, 2, 3...)
+//? Drawback: PRIMARY CLUSTERING — long chains of occupied slots degrade perf
 
-// * Formula
-//? probe(i) = (h1(key) + i) % SIZE
+// * Formula:  probe(i) = (h1(key) + i) % SIZE
 
 // ! Time Complexity:
 // ! Insert: O(1) average, O(n) worst case (heavy clustering)
@@ -21,91 +17,71 @@
 #include <iostream>
 using namespace std;
 
-// * Fixed capacity of the hash table
 #define SIZE 10
 
-// * Sentinel values used as slot markers:
-//   -1 = Empty   → slot was never used
-//   -2 = Deleted → tombstone, slot was used but key was removed
+// -1 = Empty (never used)   -2 = Deleted (tombstone)
 int hashTable[SIZE];
 
-// * Initializes all hash table slots to -1 (Empty) before use
 void initialize() {
   for (int i = 0; i < SIZE; i++) {
     hashTable[i] = -1;
   }
 }
 
-// * Insert: Places key into the table using linear probing
-//? Why (index + 1) % SIZE?  → Wraps around to slot 0 after slot SIZE-1
-//! WARNING: Linear probing causes PRIMARY CLUSTERING
-//!          Long chains of occupied slots form, degrading performance to O(n)
 void insert(int key) {
-  int index = key % SIZE; // Hash function: simple modulo
-  int start = index;      // * Remember start to detect full table (full cycle)
+  int index = key % SIZE;
+  int start = index;
 
-  // * Skip over occupied slots — probe one step at a time
   while (hashTable[index] != -1 && hashTable[index] != -2) {
-    index = (index + 1) % SIZE; // Linear probe: move to next slot
-
-    //! If we've looped back to start, the table is completely full
+    index = (index + 1) % SIZE;
     if (index == start) {
       cout << "Hash Table is Full!" << endl;
       return;
     }
   }
 
-  // * Insert into the first Empty or Deleted slot found
   hashTable[index] = key;
   cout << key << " inserted at index " << index << endl;
 }
 
-// * Search: Finds key by following the same linear probe sequence as insert
-//? Why stop at -1 (Empty) but NOT at -2 (Deleted)?
-//? -1 means no key could ever have been inserted past this point
-//? -2 (tombstone) means a key WAS here before — we must keep probing past it
+// * Stop at -1 (Empty) — no key could exist past here
+// * Don't stop at -2 (Deleted/tombstone) — a key may have been inserted beyond
+// it
 int search(int key) {
   int index = key % SIZE;
   int start = index;
 
   while (hashTable[index] != -1) {
     if (hashTable[index] == key)
-      return index; // * Key found — return its index
+      return index;
 
     index = (index + 1) % SIZE;
-
     if (index == start)
-      break; // * Completed full cycle, key not present
+      break;
   }
 
-  return -1; // * Key not found
+  return -1;
 }
 
-// * Delete: Uses tombstone (-2) strategy to preserve probe chain integrity
-//! CRITICAL: NEVER set a deleted slot back to -1 (Empty)!
-//!           Doing so would break the probe chain — future searches for keys
-//!           that were inserted AFTER this slot would terminate too early
-//? Tombstone (-2) tells search: "keep probing, something was here before"
-//? Tombstone (-2) tells insert: "you can reuse this slot"
+// * Use tombstone (-2), NOT -1, to avoid breaking the probe chain
 void deleteKey(int key) {
   int index = search(key);
   if (index == -1) {
     cout << "Key " << key << " Not Found!" << endl;
   } else {
-    hashTable[index] = -2; // * Mark as tombstone (logically deleted)
+    hashTable[index] = -2;
     cout << "Key " << key << " Deleted from Index " << index << endl;
   }
 }
 
-// * Display: Prints the full hash table showing slot states
 void display() {
   cout << "\nIndex | Value\n";
   cout << "------+-------\n";
   for (int i = 0; i < SIZE; i++) {
     if (hashTable[i] == -1)
-      cout << "  " << i << "   | Empty\n"; // * Never-used slot
+      cout << "  " << i << "   | Empty\n";
     else if (hashTable[i] == -2)
-      cout << "  " << i << "   | Deleted\n"; // * Tombstone slot
+      cout << "  " << i << "   | Deleted\n";
     else
       cout << "  " << i << "   | " << hashTable[i] << "\n";
   }
@@ -113,7 +89,7 @@ void display() {
 }
 
 int main() {
-  initialize(); // * Must be called first to set all slots to Empty (-1)
+  initialize();
 
   int n, key, choice;
 
@@ -127,7 +103,6 @@ int main() {
 
   display();
 
-  // * Menu-driven interface: Search, Delete, Display, Exit
   cout << "1. Search  2. Delete  3. Display  0. Exit\n";
   do {
     cout << "\nEnter Choice: ";
@@ -146,7 +121,7 @@ int main() {
       cout << "Enter Key to Delete: ";
       cin >> key;
       deleteKey(key);
-      display(); // * Show updated table after deletion
+      display();
 
     } else if (choice == 3) {
       display();
