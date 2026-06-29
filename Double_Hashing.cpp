@@ -90,4 +90,9 @@ int main() {
 
   int key = 112;
   int pos = search(key);
+
+  if (pos != -1)
+    cout << key << " is present at index " << pos << endl;
+  else
+    cout << "\n" << key << " Not found" << endl;
 }
