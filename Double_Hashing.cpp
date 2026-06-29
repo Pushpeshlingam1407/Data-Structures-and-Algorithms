@@ -32,11 +32,6 @@ int hash2(int key) { return 7 - (key % 7); }
 void insert(int key) {
   int index = hash1(key);
   int step = hash2(key);
-}
-
-void insert(int key) {
-  int index = hash1(key);
-  int step = hash2(key);
   int i = 0;
   while (i < SIZE) {
     int newIndex = (index + i * step) % SIZE;
