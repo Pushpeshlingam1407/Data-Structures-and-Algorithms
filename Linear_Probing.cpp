@@ -45,8 +45,7 @@ void insert(int key) {
 }
 
 // * Stop at -1 (Empty) — no key could exist past here
-// * Don't stop at -2 (Deleted/tombstone) — a key may have been inserted beyond
-// it
+// * Don't stop at -2 (Deleted/tombstone) — a key may have been inserted beyond it
 int search(int key) {
   int index = key % SIZE;
   int start = index;
