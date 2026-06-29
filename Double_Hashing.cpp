@@ -77,6 +77,7 @@ void display() {
     }
   }
 }
+
 int main() {
   initialize();
   insert(1201);
