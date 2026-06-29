@@ -33,6 +33,7 @@ void insert(int key) {
   int index = hash1(key);
   int step = hash2(key);
 }
+
 void insert(int key) {
   int index = hash1(key);
   int step = hash2(key);
@@ -48,4 +49,45 @@ void insert(int key) {
   }
   cout << "Hash Table is Full!" << endl;
 }
-int main() { initialize(); }
+
+int search(int key) {
+  int index = hash1(key);
+  int step = hash2(key);
+  int i = 0;
+  while (i < SIZE) {
+    int newIndex = (index + i * step) % SIZE;
+    if (hashTable[newIndex] == key) {
+      return newIndex;
+    }
+    if (hashTable[newIndex] == -1) {
+      return -1;
+    }
+    i++;
+  }
+  return -1;
+}
+
+void display() {
+  cout << "\nHash Table Values:";
+  for (int i = 0; i < SIZE; i++) {
+    if (hashTable[i] == -1) {
+      cout << i << " --> Empty " << endl;
+    } else {
+      cout << i << " --> " << hashTable[i] << endl;
+    }
+  }
+}
+int main() {
+  initialize();
+  insert(1201);
+  insert(111);
+  insert(212);
+  insert(231);
+  insert(232);
+  insert(223);
+
+  display();
+
+  int key = 112;
+  int pos = search(key);
+}
