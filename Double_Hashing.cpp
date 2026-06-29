@@ -33,5 +33,19 @@ void insert(int key) {
   int index = hash1(key);
   int step = hash2(key);
 }
-
+void insert(int key) {
+  int index = hash1(key);
+  int step = hash2(key);
+  int i = 0;
+  while (i < SIZE) {
+    int newIndex = (index + i * step) % SIZE;
+    if (hashTable[newIndex] == -1) {
+      hashTable[newIndex] = key;
+      cout << key << "Inserted at index " << newIndex << endl;
+      return;
+    }
+    i++;
+  }
+  cout << "Hash Table is Full!" << endl;
+}
 int main() { initialize(); }
