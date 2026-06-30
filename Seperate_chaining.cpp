@@ -68,4 +68,5 @@ int main() {
   insert(244);
   insert(215);
   search(231);
+  search(230);
 }
