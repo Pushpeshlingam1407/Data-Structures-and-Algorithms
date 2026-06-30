@@ -79,6 +79,7 @@ int main() {
   insert(229);
   insert(244);
   insert(215);
+  display();
   search(231);
   search(230);
 }
