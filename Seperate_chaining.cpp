@@ -57,6 +57,18 @@ void search(int key) {
     cout << key << " is not present at Index " << index << endl;
 }
 
+void display() {
+  for (int i = 0; i < SIZE; i++) {
+    cout << "Index " << i << ": ";
+    Node *temp = hashTable[i];
+    while (temp != nullptr) {
+      cout << temp->data << " -> ";
+      temp = temp->next;
+    }
+    cout << "NULL" << endl;
+  }
+}
+
 int main() {
   initialize();
   insert(123);
