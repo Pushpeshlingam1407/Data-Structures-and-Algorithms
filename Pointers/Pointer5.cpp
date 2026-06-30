@@ -1,4 +1,4 @@
-//* variable references 
+//TODO: Variable references in C++ — demonstrating reference syntax and behavior
 
 #include <bits/stdc++.h>
 using namespace std;

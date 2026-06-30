@@ -1,4 +1,4 @@
-//* Structure within a structure with direct initialization
+//TODO: Nested structures — struct within a struct with direct initialization (static allocation)
 
 #include <bits/stdc++.h>
 using namespace std;

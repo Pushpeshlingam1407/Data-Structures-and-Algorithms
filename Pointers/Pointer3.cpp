@@ -1,4 +1,4 @@
-//* Array input/output using pointers, printing values and their addresses.
+//TODO: Array input/output using pointers — printing values and memory addresses
 
 #include <bits/stdc++.h>
 using namespace std;

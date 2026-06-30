@@ -1,4 +1,4 @@
-//* Demonstrates the definition and usage of a C++ class with private attributes, initialization, modification, and area calculation methods.
+//TODO: Demonstrates C++ class definition with private attributes, constructor, setter, and area calculation method
 
 #include <bits/stdc++.h>
 using namespace std;

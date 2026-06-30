@@ -1,3 +1,4 @@
+//TODO: Student linked list — stores student records (name, roll no.) in a singly linked list
 #include <bits/stdc++.h>
 using namespace std;
 

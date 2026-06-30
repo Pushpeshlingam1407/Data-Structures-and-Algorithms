@@ -1,4 +1,4 @@
-// Example of nested structure initialization and usage (static memory allocation)
+//TODO: Nested structure initialization and usage with static memory allocation
 
 #include <bits/stdc++.h>
 using namespace std;

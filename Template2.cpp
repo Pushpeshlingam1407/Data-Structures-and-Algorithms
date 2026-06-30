@@ -1,4 +1,4 @@
-//* Program demonstrating a generic arithmetic class using templates with int and float types
+//TODO: Generic arithmetic class using C++ templates supporting both int and float types
 
 #include <bits/stdc++.h>
 using namespace std;

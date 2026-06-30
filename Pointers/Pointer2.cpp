@@ -1,5 +1,4 @@
-
-//* Using a pointer to access structure members
+//TODO: Using a pointer to access and display structure members (arrow operator ->)
 #include <bits/stdc++.h>
 using namespace std;
 int main()

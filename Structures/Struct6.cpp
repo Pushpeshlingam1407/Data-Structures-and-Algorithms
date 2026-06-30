@@ -1,4 +1,4 @@
-//* Demonstrates use of a struct with pointer-based functions to initialize, modify, and compute the area of a rectangle.
+//TODO: Rectangle struct with pointer-based functions to initialize, modify, and compute area
 
 #include <bits/stdc++.h>
 using namespace std;

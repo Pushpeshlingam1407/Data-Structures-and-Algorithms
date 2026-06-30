@@ -1,4 +1,4 @@
-// Program demonstrating class template for basic arithmetic operations (add and subtract)
+//TODO: Class template for generic arithmetic operations (add and subtract) with int and float types
 
 #include <bits/stdc++.h>
 using namespace std;

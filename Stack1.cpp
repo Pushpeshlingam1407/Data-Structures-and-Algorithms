@@ -1,4 +1,4 @@
-//* STACKS
+//TODO: Stack implementation using arrays with push, pop, peek, and display operations
 
 //* Stack Underflow - The case when stack is empty and we try to pop or peek
 // from it.

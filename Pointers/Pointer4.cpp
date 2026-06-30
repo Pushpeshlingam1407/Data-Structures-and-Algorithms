@@ -1,4 +1,4 @@
-//* Demonstrating reference variables (aliasing) using pointers concept
+//TODO: Reference variables (aliasing) — demonstrating how references point to the same memory as the original
 
 #include <bits/stdc++.h>
 using namespace std;

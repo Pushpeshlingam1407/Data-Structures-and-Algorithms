@@ -1,3 +1,5 @@
+//TODO: BFS traversal using STL queue and unordered_map for visited tracking
+
 #include <bits/stdc++.h>
 using namespace std;
 

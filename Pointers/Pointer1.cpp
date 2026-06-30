@@ -1,4 +1,4 @@
-//* Pointer: A variable that stores the memory address of another variable as its value.
+//TODO: Pointer basics — a variable storing the memory address of another variable
 
 #include <bits/stdc++.h>
 using namespace std;

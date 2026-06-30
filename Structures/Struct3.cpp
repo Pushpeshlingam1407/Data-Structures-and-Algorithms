@@ -1,4 +1,4 @@
-//* Reading and initializing an array of structures dynamically at runtime
+//TODO: Reading and initializing an array of structures dynamically at runtime via user input
 #include <bits/stdc++.h>
 using namespace std;
 

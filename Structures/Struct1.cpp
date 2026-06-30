@@ -1,4 +1,4 @@
-//* Structures: A user-defined data type that groups heterogeneous data elements under a single name.
+//TODO: Structures — user-defined data type grouping heterogeneous data elements under a single name
 //* Syntax:
 /*
 struct structure_name {
@@ -7,7 +7,7 @@ struct structure_name {
     ...
 } variable_name;
 */
-// Code for structure
+//TODO:
 #include <bits/stdc++.h>
 using namespace std;
 struct Student

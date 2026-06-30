@@ -1,4 +1,4 @@
-//* Demonstrates structure usage with reference aliasing and string copy operations in C-style character arrays
+//TODO: Demonstrates reference variables (aliasing) and C-style string copy in struct members
 
 #include <bits/stdc++.h>
 using namespace std;

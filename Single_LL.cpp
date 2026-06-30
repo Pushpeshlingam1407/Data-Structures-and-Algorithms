@@ -1,3 +1,5 @@
+//TODO: Basic Singly Linked List implementation — node creation, insertion, and traversal
+
 #include <iostream>
 using namespace std;
 

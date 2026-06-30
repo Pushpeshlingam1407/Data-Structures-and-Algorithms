@@ -1,3 +1,5 @@
+//TODO: Singly Linked List with real-world insert, delete, and traversal operations
+
 #include <iostream>
 #include <string>
 using namespace std;

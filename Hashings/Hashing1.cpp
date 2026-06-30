@@ -1,3 +1,5 @@
+//TODO: Basic hash table implementation using direct chaining with key % SIZE hash function
+
 #include <iostream>
 using namespace std;
 

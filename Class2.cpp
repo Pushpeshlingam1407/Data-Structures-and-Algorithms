@@ -1,4 +1,4 @@
-// Program demonstrating a Rectangle class using scope resolution operator (::) for member function definitions
+//TODO: Rectangle class using scope resolution operator (::) for out-of-class member function definitions
 
 #include <bits/stdc++.h>
 using namespace std;
