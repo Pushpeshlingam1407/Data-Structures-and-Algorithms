@@ -1,7 +1,7 @@
 // TODO: Implemention of Separate Chaining
 // ? A separate chaining is a Collision Resolution Technique used in Hash Tables
-// ? It is a method of storing multiple values in the same index of the hash table 
-// ? The values are stored in a linked list at the index
+// ? It is a method of storing multiple values in the same index of the hash
+// table ? The values are stored in a linked list at the index
 
 //! Formula
 //? h(key) = key % SIZE
@@ -17,49 +17,18 @@ using namespace std;
 
 #define SIZE 10
 
-int hashTable[SIZE];
+struct Node {
+  int data;
+  Node *next;
+};
+
+Node *hashTable[SIZE];
 
 void initialize() {
-  for (int i = 0; i < SIZE; i++) {
-    hashTable[i] = -1;
-  }
+  for (int i = 0; i < SIZE; i++)
+    hashTable[i] = nullptr;
 }
 
-int hashFunction(int key) { return key % SIZE; }
-
-void insert(int key) {
-  int index = hashFunction(key);
-  if (hashTable[index] == -1) {
-    hashTable[index] = key;
-    cout << key << " Inserted at index " << index << endl;
-  } else {
-    cout << "Collision at index " << index << " for key " << key << endl;
-  }
-}
-
-void display() {
-  cout << "\nHash Table Values:" << endl;
-  for (int i = 0; i < SIZE; i++) {
-    if (hashTable[i] == -1) {
-      cout << i << " --> Empty " << endl;
-    } else {
-      cout << i << " --> " << hashTable[i] << endl;
-    }
-  }
-}
-
-int main() {
+int main(){
   initialize();
-  insert(12);
-  insert(22);
-  insert(32);
-  insert(42);
-  insert(52);
-  insert(62);
-  insert(72);
-  insert(82);
-  insert(92);
-  insert(102);
-  display();
-  return 0;
 }
