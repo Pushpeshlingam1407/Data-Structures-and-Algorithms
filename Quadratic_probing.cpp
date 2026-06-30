@@ -44,21 +44,21 @@ void insert(int key) {
 
 // * Follow same probe sequence as insert — key was placed along this path
 // * Stop at -1 (Empty); don't stop at -2 (tombstone) — key may be beyond it
-void search(int key) {
+int search(int key) {
   int index = key % SIZE;
   int i = 0;
 
   while (i < SIZE) {
     int newIndex = (index + i * i) % SIZE;
 
-    if (hashTable[newIndex] == key) {
-      cout << "Key " << key << " Found at index " << newIndex << endl;
-      return;
-    }
+    if (hashTable[newIndex] == key)
+      return newIndex;
+    if (hashTable[newIndex] == -1)
+      return -1;
     i++;
   }
 
-  cout << "Key " << key << " Not Found!" << endl;
+  return -1;
 }
 
 // * Use tombstone (-2), NOT -1, to avoid breaking the probe chain
@@ -109,23 +109,33 @@ int main() {
 
   display();
 
-  cout << "1. Search  2. Delete  3. Display  0. Exit\n";
+  cout << "1. Insert  2. Search  3. Delete  4. Display  0. Exit\n";
   do {
     cout << "\nEnter Choice: ";
     cin >> choice;
 
     if (choice == 1) {
-      cout << "Enter Key to Search: ";
+      cout << "Enter Key to Insert: ";
       cin >> key;
-      search(key);
+      insert(key);
+      display();
 
     } else if (choice == 2) {
+      cout << "Enter Key to Search: ";
+      cin >> key;
+      int result = search(key);
+      if (result != -1)
+        cout << "Key " << key << " Found at Index " << result << endl;
+      else
+        cout << "Key " << key << " Not Found!" << endl;
+
+    } else if (choice == 3) {
       cout << "Enter Key to Delete: ";
       cin >> key;
       deleteKey(key);
       display();
 
-    } else if (choice == 3) {
+    } else if (choice == 4) {
       display();
     }
 

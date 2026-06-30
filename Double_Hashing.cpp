@@ -103,12 +103,18 @@ int main() {
 
   display();
 
-  cout << "1. Search  2. Delete  3. Display  0. Exit\n";
+  cout << "1. Insert  2. Search  3. Delete  4. Display  0. Exit\n";
   do {
     cout << "\nEnter Choice: ";
     cin >> choice;
 
     if (choice == 1) {
+      cout << "Enter Key to Insert: ";
+      cin >> key;
+      insert(key);
+      display();
+
+    } else if (choice == 2) {
       cout << "Enter Key to Search: ";
       cin >> key;
       int result = search(key);
@@ -117,13 +123,13 @@ int main() {
       else
         cout << "Key " << key << " Not Found!" << endl;
 
-    } else if (choice == 2) {
+    } else if (choice == 3) {
       cout << "Enter Key to Delete: ";
       cin >> key;
       deleteKey(key);
       display();
 
-    } else if (choice == 3) {
+    } else if (choice == 4) {
       display();
     }
 
