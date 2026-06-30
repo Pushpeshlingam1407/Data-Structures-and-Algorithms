@@ -45,41 +45,109 @@ void insert(int key) {
   cout << key << " Inserted at Index " << index << endl;
 }
 
-void search(int key) {
+// * Search returns the index if found, -1 otherwise
+int search(int key) {
   int index = key % SIZE;
   Node *temp = hashTable[index];
-  while (temp != nullptr && temp->data != key) {
+  while (temp != nullptr) {
+    if (temp->data == key)
+      return index;
     temp = temp->next;
   }
-  if (temp != nullptr)
-    cout << key << " is present at Index " << index << endl;
+  return -1;
+}
+
+// * Delete a key from the linked list at its hash index
+void deleteKey(int key) {
+  int index = key % SIZE;
+  Node *temp = hashTable[index];
+  Node *prev = nullptr;
+
+  while (temp != nullptr && temp->data != key) {
+    prev = temp;
+    temp = temp->next;
+  }
+
+  if (temp == nullptr) {
+    cout << "Key " << key << " Not Found!" << endl;
+    return;
+  }
+
+  if (prev == nullptr)
+    hashTable[index] = temp->next;   // deleting head node
   else
-    cout << key << " is not present at Index " << index << endl;
+    prev->next = temp->next;
+
+  free(temp);
+  cout << "Key " << key << " Deleted from Index " << index << endl;
 }
 
 void display() {
+  cout << "\nIndex | Chain\n";
+  cout << "------+---------------------------\n";
   for (int i = 0; i < SIZE; i++) {
-    cout << "Index " << i << ": ";
+    cout << "  " << i << "   | ";
     Node *temp = hashTable[i];
-    while (temp != nullptr) {
-      cout << temp->data << " -> ";
-      temp = temp->next;
+    if (temp == nullptr) {
+      cout << "NULL";
+    } else {
+      while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+      }
+      cout << "NULL";
     }
-    cout << "NULL" << endl;
+    cout << "\n";
   }
+  cout << endl;
 }
 
 int main() {
   initialize();
-  insert(123);
-  insert(231);
-  insert(223);
-  insert(232);
-  insert(185);
-  insert(229);
-  insert(244);
-  insert(215);
+
+  int n, key, choice;
+
+  cout << "Enter Number of Keys to Insert: ";
+  cin >> n;
+  for (int i = 0; i < n; i++) {
+    cout << "Enter Key " << i + 1 << ": ";
+    cin >> key;
+    insert(key);
+  }
+
   display();
-  search(231);
-  search(230);
+
+  cout << "1. Insert  2. Search  3. Delete  4. Display  0. Exit\n";
+  do {
+    cout << "\nEnter Choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+      cout << "Enter Key to Insert: ";
+      cin >> key;
+      insert(key);
+      display();
+
+    } else if (choice == 2) {
+      cout << "Enter Key to Search: ";
+      cin >> key;
+      int result = search(key);
+      if (result != -1)
+        cout << "Key " << key << " Found at Index " << result << endl;
+      else
+        cout << "Key " << key << " Not Found!" << endl;
+
+    } else if (choice == 3) {
+      cout << "Enter Key to Delete: ";
+      cin >> key;
+      deleteKey(key);
+      display();
+
+    } else if (choice == 4) {
+      display();
+    }
+
+  } while (choice != 0);
+
+  return 0;
 }
