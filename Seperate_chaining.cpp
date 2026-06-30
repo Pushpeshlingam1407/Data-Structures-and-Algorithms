@@ -29,6 +29,30 @@ void initialize() {
     hashTable[i] = nullptr;
 }
 
-int main(){
-  initialize();
+void insert(int key) {
+  int index = key % SIZE;
+  Node *newNode = (Node *)malloc(sizeof(Node));
+  newNode->data = key;
+  newNode->next = NULL;
+  if (hashTable[index] == NULL) {
+    hashTable[index] = newNode;
+  } else {
+    Node *temp = hashTable[index];
+    while (temp->next != nullptr)
+      temp = temp->next;
+    temp->next = newNode;
+  }
+  cout << key << "Inserted at Index " << index << endl;
+}
+
+int main() { 
+  initialize(); 
+  insert(123);
+  insert(231);
+  insert(223);
+  insert(232);
+  insert(185);
+  insert(229);
+  insert(244);
+  insert(215);
 }
