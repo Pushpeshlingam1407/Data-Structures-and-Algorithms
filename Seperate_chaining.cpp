@@ -1,6 +1,6 @@
 // TODO: Implemention of Separate Chaining
 // ? A separate chaining is a Collision Resolution Technique used in Hash Tables
-// ? It is a method of storing multiple values in the same index of the hash table
+// ? It is a method of storing multiple values in the same index of the hash table 
 // ? The values are stored in a linked list at the index
 
 //! Formula
@@ -74,7 +74,7 @@ void deleteKey(int key) {
   }
 
   if (prev == nullptr)
-    hashTable[index] = temp->next;   // deleting head node
+    hashTable[index] = temp->next; // deleting head node
   else
     prev->next = temp->next;
 
