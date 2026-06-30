@@ -48,7 +48,13 @@ void insert(int key) {
 void search(int key) {
   int index = key % SIZE;
   Node *temp = hashTable[index];
-  
+  while (temp != nullptr && temp->data != key) {
+    temp = temp->next;
+  }
+  if (temp != nullptr)
+    cout << key << " is present at Index " << index << endl;
+  else
+    cout << key << " is not present at Index " << index << endl;
 }
 
 int main() {
