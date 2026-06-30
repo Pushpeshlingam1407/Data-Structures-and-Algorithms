@@ -45,8 +45,8 @@ void insert(int key) {
   cout << key << "Inserted at Index " << index << endl;
 }
 
-int main() { 
-  initialize(); 
+int main() {
+  initialize();
   insert(123);
   insert(231);
   insert(223);
