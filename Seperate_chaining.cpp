@@ -42,7 +42,13 @@ void insert(int key) {
       temp = temp->next;
     temp->next = newNode;
   }
-  cout << key << "Inserted at Index " << index << endl;
+  cout << key << " Inserted at Index " << index << endl;
+}
+
+void search(int key) {
+  int index = key % SIZE;
+  Node *temp = hashTable[index];
+  
 }
 
 int main() {
@@ -55,4 +61,5 @@ int main() {
   insert(229);
   insert(244);
   insert(215);
+  search(231);
 }
